@@ -33,10 +33,17 @@ public class Interfaz extends AppCompatActivity implements View.OnTouchListener 
     Paint paint;
     int alto, ancho;
     float x, y;
+
+    // PARA RECORDAR DATOS
     SharedPreferences respaldo;
+    private SharedPreferences.Editor editor;
+    //editor = respaldo.edit();
+    //editor.putInt("max", max);
+    //if(editor.commit())
 
     // Variable bluetooth
     BluetoothSPP bt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
