@@ -1,0 +1,29 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+
+    <!-- FABS -->
+    <dimen name="margen_chiquis">10dp</dimen>
+    <dimen name="margen_mini">5dp</dimen>
+    <dimen name="margen_pequeño">15dp</dimen>
+    <dimen name="margen_mediano">30dp</dimen>
+    <dimen name="margen_grande">60dp</dimen>
+    <dimen name="fab_margin2">72.5dp</dimen>
+    <dimen name="fab_margin3">135dp</dimen>
+
+    <!-- ARCO -->
+    <dimen name="arco_ancho">30dp</dimen>
+
+    <!-- SPINNER -->
+    <dimen name="alto_spinner">60dp</dimen>
+
+
+
+</resources>

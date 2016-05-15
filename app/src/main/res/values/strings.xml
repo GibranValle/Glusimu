@@ -1,0 +1,181 @@
+<resources>
+    <string name="nombre_app">Glusimo</string>
+
+
+    <!-- Navigation Drawer-->
+    <string name="nav_titulo">Glusimo tu monitor inteligente</string>
+    <string name="nav_subtitulo">UPIBI IPN 2016</string>
+    <string name="navigation_drawer_open">Abriendo</string>
+    <string name="navigation_drawer_close">Cerrando</string>
+    <string name="nav_check">Hacer Medición</string>
+    <string name="nav_registro">Ver Registro</string>
+    <string name="nav_dx">Realizar diagnóstico</string>
+    <string name="nav_monitor">Graficar Registro</string>
+    <string name="nav_acerca">Acerca de</string>
+    <string name="nav_glusimo">Glusimo</string>
+    <string name="nav_comu">Comunicación</string>
+    <string name="nav_share">Compartir</string>
+    <string name="nav_send">Enviar</string>
+    <string name="nav_config">Configuraciones</string>
+    <string name="nav_conectar">Conectar a:</string>
+    <string name="info">Acerca de</string>
+
+    <!-- SlidingTabs -->
+    <string-array name="titulos_tabs">
+        <item>"Medición"</item>
+        <item>"Registro"</item>
+        <item>"Curva Diagnóstica"</item>
+        <item>"Monitor"</item>
+    </string-array>
+
+    <!-- Notificacion -->
+    <string name="notificacion_titulo">Glusimo</string>
+
+    <string name="notificacion_text">Medición recibida: correcta</string>
+    <string name="notificacion_ticker">Glucemia controlada</string>
+    <string name="notificacion_info">"Valor de glucemia recibido: "</string>
+
+    <string name="warning_text">"Medición recibida: precaución"</string>
+    <string name="warning_ticker">Precaución: glucemia en aumento</string>
+
+    <string name="alarm_hiper_text">Medición recibida: alerta de hiperglucemia</string>
+    <string name="alarm_hiper_ticker">Alerta, glucemia elevada</string>
+
+    <string name="alarm_hipo_text">Medición recibida: alerta de hipoglucemia\nToque para terminar</string>
+    <string name="alarm_hipo_ticker">Alerta, sospecha de hipoglucemia</string>
+
+    <string name="boton_noti_aceptar">Aceptar</string>
+    <string name="boton_noti_pausar">Pausar</string>
+
+    <string name="titulo_notificacion">Panel de Notificación</string>
+
+    <!-- textos BT -->
+    <string name="bt_dc">DESCONECTADO</string>
+    <string name="bt_ct">CONECTADO</string>
+    <string name="bt_cting">CONECTANDO</string>
+    <string name="bt_off">SIN\nCONEXIÓN</string>
+    <string name="bt_button">Iniciar\nConexión</string>
+    <string name="bt_error">Conexión Fallida</string>
+    <string name="bt_exito">Conectado correctamente a: </string>
+    <string name="no_vinculados">No se encontraron dispositivos vinculados</string>
+    <string name="no_encontrados">No se encontraron dispositivos</string>
+    <string name="conectar">Conectar a Dosificador</string>
+    <string name="buscar">Buscar Dosificador</string>
+    <string name="visible">Hacer Visible</string>
+
+    <!-- textos DeviceList-->
+    <string name="dialog_vinculados">Dispositivos Vinculados</string>
+    <string name="dialog_encontrados">Dispositivos Encontrados</string>
+
+    <!-- textos Menu -->
+    <string name="menu_config">Configuración</string>
+
+    <!-- textos Fragments pop up -->
+    <string name="pop_boton_aceptar">Aceptar</string>
+    <string name="pop_mensaje">Proyecto terminal III\n Simulación metabólica, monitorización
+        y regulación de glucemia\n\nPiñones y Valle\n2016 - V1.0</string>
+    <string name="pop_titulo">UPIBI - IPN</string>
+
+    <!-- textos Medicion Salud paciente paciente -->
+    <string name="paciente_saludable">Saludable</string>
+    <string name="paciente_warning">Principio de Hiperglucemia</string>
+    <string name="paciente_emergency">Hiperglucemia Severa</string>
+    <string name="paciente_emergency_hipo">Hipoglucemia</string>
+    <string name="sin_medicion">De click en el arco para realizar una medición</string>
+    <string name="sin_conexion">Conecte con el dosificador para empezar la medición</string>
+    <string name="midiendo">Realizando medición\nEspere por favor</string>
+    <string name="sufijo">mg/dL</string>
+    <string name="texto_arco">Glucómetro</string>
+    <string name="texto_arco_demo">Glucómetro modo demo</string>
+
+    <!-- textos Curva -->
+    <string name="titulo_tendencias">Prueba de tolerancia a la glucosa</string>
+    <string name="eje_tiempo">Tiempo [min]</string>
+    <string name="eje_Y">Glucemia [mg/dL]</string>
+    <string name="info_tendencias">"Escala:  25mg/dL  |  15min"</string>
+    <string name="dx_intolerancia">"Intolerancia elevada"</string>
+    <string name="dx_sospecha_intolerancia">"Sospecha de intolerancia"</string>
+    <string name="dx_normal">"Tolerancia normal"</string>
+    <string name="dx_tolerancia">"Sospecha de tolerancia excesiva"</string>
+
+
+    <!-- textos Lista -->
+    <string name="titulo_lista">Registro de eventos</string>
+    <string name="error_db">Error al guardar en la base de datos</string>
+    <string name="exito_db">Medición agregada correctamente</string>
+    <string-array name="lista_meses">
+        <item>"enero"</item>
+        <item>"febrero"</item>
+        <item>"marzo"</item>
+        <item>"abril"</item>
+        <item>"mayo"</item>
+        <item>"junio"</item>
+        <item>"julio"</item>
+        <item>"agosto"</item>
+        <item>"septiembre"</item>
+        <item>"octubre"</item>
+        <item>"noviembre"</item>
+        <item>"diciembre"</item>
+    </string-array>
+
+    <string-array name="lista_estados">
+        <item>"Hipoglucemia"</item>
+        <item>"Saludable"</item>
+        <item>"Principio de Hiperglucemia"</item>
+        <item> "Hiperglucemia Severa"</item>
+    </string-array>
+
+    <!-- DetallesLista -->
+    <string name="Año">Año: </string>
+    <string name="Mes">Mes: </string>
+    <string name="Dia">Día: </string>
+    <string name="fecha">Fecha: </string>
+    <string name="tiempo">Hora: </string>
+    <string name="concentración">Medición\n[mg/dL]: </string>
+    <string name="Estado">Saludable</string>
+    <string name="boton_eliminar">Eliminar</string>
+    <string name="boton_actualizar">Actualizar</string>
+    <string name="boton_cancelar">Cancelar</string>
+
+    <!-- Configuracion -->
+    <string name="titulo_config">Opcion Seleccionada</string>
+    <string name="demo">Habilitar el modo demo</string>
+    <string name="max">"Medición máxima:"</string>
+    <string name="max_hint"> 250</string>
+    <string name="hipo">"Hipoglucemia: "</string>
+    <string name="hipo_hint"> 70</string>
+    <string name="hiper">"Hiperglucemia: "</string>
+    <string name="hiper_hint"> 120</string>
+    <string name="hiper_max">"Hiperglucemia severa: "</string>
+    <string name="hiper_max_hint"> 250</string>
+    <string name="unidades">Nota: Unidades de medición [mg/dL]</string>
+    <string name="titulo_medicion">Configuración de medición</string>
+    <string name="titulo_registro">Configuración de registro</string>
+    <string name="titulo_curva">Configuración de curva</string>
+    <string name="titulo_monitor_config">Configuración de monitor</string>
+    <string name="exito">Configuración guardada con éxito</string>
+    <string name="curvadiabetes">"Curva muestra: Diabético"</string>
+    <string name="curvapre">"Curva muestra: Pre diabético"</string>
+    <string name="curvasano">"Curva muestra: Saludable"</string>
+    <string name="curvapersonalizada">Curva Personalizada</string>
+    <string name="lecturaA">"Lectura inicial [mg/dL]"</string>
+    <string name="lecturaB">"30 minutos [mg/dL]"</string>
+    <string name="lecturaC">"1 hora [mg/dL]"</string>
+    <string name="lecturaD">"1 hora 30 minutos [mg/dL]"</string>
+    <string name="lecturaE">"2 horas [mg/dL]"</string>
+    <string name="lecturaF">"2 horas 30 minutos [mg/dL]"</string>
+    <string name="lecturaG">"3 horas [mg/dL]"</string>
+    <string name="boton_db">"Eliminar todas las entradas"</string>
+    <string name="exito_eliminar_db">"Se han eliminado todos los registros"</string>
+    <string name="error_eliminar_db">"Error al intentar borrar los registros"</string>
+    <string name="error_eliminar_db2">"Error: No existen registros que borrar"</string>
+    <string name="error_spinner">"Seleccione una curva a graficar"</string>
+    <string name="cb_monitor">Monitorizar glucemia</string>
+    <string name="frec_monitor">Frecuencia [muestras/hora]: </string>
+    <string name="hint_monitor">2</string>
+
+    <!-- Monitor -->
+    <string name="titulo_monitor">"Monitor de glucemia"</string>
+    <string name="titulo_monitor_off">"Monitor de glucemia"</string>
+
+</resources>
