@@ -19,6 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".Configuracion"
+            android:theme="@android:style/Theme.Holo.Dialog"
+            />
         <!--
                 <activity
                     android:name=".fragments.Fragment_Configuraciones"

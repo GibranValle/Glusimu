@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center|top"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+    <!--Titulo-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/tituloFragment"
+            android:id="@+id/tituloFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="@string/titulo_config_simu"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+        <!--Linea-->
+        <TextView
+            android:id="@+id/linea"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorLetra" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/corazon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:padding="@dimen/margen_chiquis"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/slider"
+            style="@style/textoFragment"
+            android:id="@+id/texto_slider" />
+
+        <SeekBar
+            android:foregroundGravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/slider"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/consumo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:layout_weight="4">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ingreso"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:layout_weight="4">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/eliminacion"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/margen_mediano"
+        android:orientation="vertical"
+        android:layout_weight="4">
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="@dimen/margen_chiquis"
+        android:visibility="visible"
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/margen_mediano"
+        android:orientation="vertical"
+        android:layout_weight="4">
+
+        <TextView
+            style="@style/textoFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/texto_spinner"
+            android:id="@+id/texto_spinner" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="@dimen/margen_chiquis"
+        android:visibility="visible"
+        android:id="@+id/test"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/margen_mediano"
+        android:orientation="vertical"
+        android:layout_weight="4" >
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Electroválvula derecha Cerebro"
+            android:id="@+id/EVC1" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Electroválvula izquierda Cerebro"
+            android:id="@+id/EVC2" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Electroválvula de músculo izquierdo"
+            android:id="@+id/EVMI" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Electroválvula de músculo derecho"
+            android:id="@+id/EVMD" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Electroválvula Hígado"
+            android:id="@+id/EVH" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Electroválvula Pancreas"
+            android:id="@+id/EVP" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Electroválvula Intestino"
+            android:id="@+id/EVI" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/botones"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/b_aceptar"
+            style="@style/textoBoton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="2dp"
+            android:layout_weight="1"
+            android:text="@string/pop_boton_aceptar" />
+
+        <Button
+            style="@style/textoBoton"
+            android:id="@+id/b_cancelar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="2dp"
+            android:layout_weight="1"
+            android:text="@string/pop_boton_cancelar" />
+
+    </LinearLayout>
+
+</LinearLayout>

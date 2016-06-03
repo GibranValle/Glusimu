@@ -1,6 +1,7 @@
 package app.proyectoterminal.upibi.glusimu;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -36,7 +37,7 @@ public class Interfaz extends AppCompatActivity implements View.OnTouchListener 
 
     // PARA RECORDAR DATOS
     SharedPreferences respaldo;
-    private SharedPreferences.Editor editor;
+    SharedPreferences.Editor editor;
     //editor = respaldo.edit();
     //editor.putInt("max", max);
     //if(editor.commit())
@@ -202,11 +203,12 @@ public class Interfaz extends AppCompatActivity implements View.OnTouchListener 
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.menu_interfaz)
+        if (id == R.id.test)
         {
             vibrar(100);
-            // LA POSICION 3 ES CONFIG
-            // ESTE METODO SE DESPLAZA AL FRAGMENT ELEGIDO
+            Intent i = new Intent(this, Configuracion.class);
+            i.putExtra("opcion","test");
+            startActivity(i);
             return true;
         }
 
@@ -243,11 +245,17 @@ public class Interfaz extends AppCompatActivity implements View.OnTouchListener 
                 if (  (pcX > 40 && pcX <60)  && (pcY > 3 && pcY < 12)  )
                 {
                     //Toast.makeText(Interfaz.this, "Click al cerebro", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(this, Configuracion.class);
+                    i.putExtra("opcion","cerebro");
+                    startActivity(i);
                 }
 
                 else if (  (pcX > 44 && pcX <59)  && (pcY > 44 && pcY < 51)  )
                 {
                     //Toast.makeText(Interfaz.this, "Click al corazón", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(this, Configuracion.class);
+                    i.putExtra("opcion","corazon");
+                    startActivity(i);
                 }
 
                 else if ( ( (pcX > 32 && pcX <44) || (pcX > 60 && pcX <70) ) && (pcY > 33 && pcY < 50)  )
@@ -258,26 +266,41 @@ public class Interfaz extends AppCompatActivity implements View.OnTouchListener 
                 else if ( ( (pcX > 10 && pcX <20) || (pcX > 80 && pcX <90) ) && (pcY > 45 && pcY < 60)  )
                 {
                     //Toast.makeText(Interfaz.this, "Click al musculo", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(this, Configuracion.class);
+                    i.putExtra("opcion","musculos");
+                    startActivity(i);
                 }
 
                 else if (  (pcX > 35 && pcX <60)  && (pcY > 55 && pcY < 65)  )
                 {
                     //Toast.makeText(Interfaz.this, "Click al higado", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(this, Configuracion.class);
+                    i.putExtra("opcion","higado");
+                    startActivity(i);
                 }
 
                 else if ( ( (pcX > 31 && pcX <36) || (pcX > 65 && pcX <70) ) && (pcY > 70 && pcY < 78)  )
                 {
                     //Toast.makeText(Interfaz.this, "Click al riñones", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(this, Configuracion.class);
+                    i.putExtra("opcion","riñones");
+                    startActivity(i);
                 }
 
                 else if (  (pcX > 45 && pcX <60)  && (pcY > 65 && pcY < 73)  )
                 {
                     //Toast.makeText(Interfaz.this, "Click al pancreas", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(this, Configuracion.class);
+                    i.putExtra("opcion","pancreas");
+                    startActivity(i);
                 }
 
                 else if (  (pcX > 35 && pcX <65)  && (pcY > 80 && pcY < 90)  )
                 {
                     //Toast.makeText(Interfaz.this, "Click al intestino", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(this, Configuracion.class);
+                    i.putExtra("opcion","intestino");
+                    startActivity(i);
                 }
 
 

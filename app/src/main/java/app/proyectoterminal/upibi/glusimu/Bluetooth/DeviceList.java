@@ -40,7 +40,7 @@ import android.widget.TextView;
 
 import java.util.Set;
 
-import app.proyectoterminal.upibi.glusimo.R;
+import app.proyectoterminal.upibi.glusimu.R;
 
 @SuppressLint("NewApi")
 public class DeviceList extends Activity {

@@ -67,11 +67,10 @@
     <string name="dialog_vinculados">Dispositivos Vinculados</string>
     <string name="dialog_encontrados">Dispositivos Encontrados</string>
 
-    <!-- textos Menu -->
-    <string name="menu_config">Configuración</string>
 
     <!-- textos Fragments pop up -->
     <string name="pop_boton_aceptar">Aceptar</string>
+    <string name="pop_boton_cancelar">Cancelar</string>
     <string name="pop_mensaje">Proyecto terminal III\n Simulación metabólica, monitorización
         y regulación de glucemia\n\nPiñones y Valle\n2016 - V1.0</string>
     <string name="pop_titulo">UPIBI - IPN</string>
@@ -177,5 +176,14 @@
     <!-- Monitor -->
     <string name="titulo_monitor">"Monitor de glucemia"</string>
     <string name="titulo_monitor_off">"Monitor de glucemia"</string>
+
+    <!-- SIMULADOR -->
+    <string name="slider">"Gasto Cardiaco: 1L/min"</string>
+    <string name="titulo_config_simu">"Simulación de flujo sanguíneo"</string>
+    <string name="texto_spinner">"Seleccione el estado del paciente"</string>
+
+    <!-- textos Menu -->
+    <string name="menu_config">Test de electroválvulas</string>
+
 
 </resources>
