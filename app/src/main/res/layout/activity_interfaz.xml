@@ -7,12 +7,55 @@
     >
 
 
-    <ImageView
+    <TextView
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/margen_chiquis"
+        style="@style/tituloFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/titulo"
+        android:id="@+id/titulo_simulador" />
+
+    <ImageView
+        android:layout_weight="10"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:id="@+id/espacio"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="@dimen/margen_chiquis"
     />
+
+    <LinearLayout
+        android:layout_weight="1.8"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/margen_mini"
+
+        >
+
+        <Button
+            android:textAllCaps="false"
+            android:layout_weight="1"
+            style="@style/textoFragment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/bt_sin_conexion"
+            android:background="@color/colorOff"
+            android:id="@+id/estado_conexion"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="3dp"
+            />
+        <TextView
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="6dp"
+            android:layout_weight="1"
+            style="@style/textoFragment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/consola_uno"
+            android:background="@color/colorOff"
+            android:id="@+id/consola" />
+    </LinearLayout>
 
 </LinearLayout>

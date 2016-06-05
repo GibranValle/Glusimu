@@ -32,6 +32,7 @@
 
 
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/corazon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,56 +58,120 @@
 
     <LinearLayout
         android:visibility="gone"
-        android:id="@+id/consumo"
+        android:id="@+id/intestino"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="4">
+        android:layout_marginTop="10dp"
+        android:padding="@dimen/margen_chiquis" >
 
+        <TextView
+            style="@style/textoFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/slider"
+            android:id="@+id/textView3" />
+
+        <SeekBar
+            android:foregroundGravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar3"
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
 
     <LinearLayout
         android:visibility="gone"
-        android:id="@+id/ingreso"
+        android:id="@+id/higado"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="4">
+        android:layout_marginTop="10dp"
+        android:padding="@dimen/margen_chiquis" >
 
+        <TextView
+            style="@style/textoFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/slider"
+            android:id="@+id/textView4" />
+
+        <SeekBar
+            android:foregroundGravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar4"
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
 
     <LinearLayout
         android:visibility="gone"
-        android:id="@+id/eliminacion"
+        android:id="@+id/cerebro"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="@dimen/margen_mediano"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="4">
+        android:layout_marginTop="10dp"
+        android:padding="@dimen/margen_chiquis" >
+
+        <TextView
+            style="@style/textoFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/slider"
+            android:id="@+id/textView2" />
+
+        <SeekBar
+            android:foregroundGravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar2"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/musculo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:padding="@dimen/margen_chiquis" >
+
+        <TextView
+            style="@style/textoFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/slider"
+            android:id="@+id/textView" />
+
+        <SeekBar
+            android:foregroundGravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar"
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
 
     <LinearLayout
         android:padding="@dimen/margen_chiquis"
         android:visibility="visible"
-        android:id="@+id/status"
+        android:id="@+id/pancreas"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="@dimen/margen_mediano"
         android:orientation="vertical"
-        android:layout_weight="4">
+        >
 
         <TextView
             style="@style/textoFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/texto_spinner"
+            android:layout_marginBottom="@dimen/margen_chiquis"
             android:id="@+id/texto_spinner" />
 
         <Spinner
+            android:layout_marginTop="@dimen/margen_chiquis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spinner" />
@@ -115,25 +180,102 @@
     <LinearLayout
         android:padding="@dimen/margen_chiquis"
         android:visibility="visible"
+        android:id="@+id/config"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            >
+
+            <TextView
+                android:layout_weight="3"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/min"
+                style="@style/elemento_lista"
+                android:id="@+id/tvm1"
+                />
+
+            <EditText
+                android:hint="@string/hint_min"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColorHint="@color/colorLetraHint"
+                android:inputType="number"
+                android:ems="20"
+                android:id="@+id/min"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            >
+
+            <TextView
+                android:layout_weight="3"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/min"
+                style="@style/elemento_lista"
+                android:id="@+id/tvm2"
+                />
+
+            <EditText
+                android:hint="@string/hint_max"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColorHint="@color/colorLetraHint"
+                android:inputType="number"
+                android:ems="20"
+                android:id="@+id/max"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="@dimen/margen_chiquis"
+        android:visibility="gone"
         android:id="@+id/test"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="@dimen/margen_mediano"
         android:orientation="vertical"
         android:layout_weight="4" >
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Electroválvula derecha Cerebro"
-            android:id="@+id/EVC1" />
+            android:text="@string/EVT"
+            android:id="@+id/EVT"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/EVC1"
+            android:id="@+id/EVCD" />
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Electroválvula izquierda Cerebro"
-            android:id="@+id/EVC2" />
+            android:id="@+id/EVCI" />
 
         <CheckBox
             android:layout_width="wrap_content"
@@ -165,6 +307,78 @@
             android:text="Electroválvula Intestino"
             android:id="@+id/EVI" />
 
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Electroválvula Riñones"
+            android:id="@+id/EVR" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="@dimen/margen_chiquis"
+        android:visibility="gone"
+        android:id="@+id/leds"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:layout_weight="4" >
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/led_todos"
+            android:id="@+id/LEDT"
+            android:checked="false" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/led_rojos"
+            android:id="@+id/LEDR" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/led_verdes"
+            android:id="@+id/LEDV" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/led_azules"
+            android:id="@+id/LEDA" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/led_higado"
+            android:id="@+id/LEDH" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/led_cerebro"
+            android:id="@+id/LEDC" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/led_musculo"
+            android:id="@+id/LEDM" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/led_intestino"
+            android:id="@+id/LEDI" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/led_pancreas"
+            android:id="@+id/LEDP" />
     </LinearLayout>
 
     <LinearLayout

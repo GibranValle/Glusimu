@@ -17,11 +17,14 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import app.proyectoterminal.upibi.glusimu.Bluetooth.BluetoothSPP;
 import app.proyectoterminal.upibi.glusimu.Bluetooth.BluetoothState;
+import app.proyectoterminal.upibi.glusimu.Bluetooth.DeviceList;
 
 public class Interfaz extends AppCompatActivity implements View.OnTouchListener {
 
@@ -29,11 +32,20 @@ public class Interfaz extends AppCompatActivity implements View.OnTouchListener 
 
     // VARIABLES PARA GRAFICAR
     ImageView espacio;
+    Button estado_conexion;
     Bitmap bitmap;
     Canvas canvas;
     Paint paint;
+    TextView consola, titulo;
     int alto, ancho;
     float x, y;
+
+    boolean conectado = false;
+
+    String accion = "nula";
+    int objetivo = 0;
+    String estado = "nula";
+    int gasto = 0;
 
     // PARA RECORDAR DATOS
     SharedPreferences respaldo;
@@ -54,6 +66,17 @@ public class Interfaz extends AppCompatActivity implements View.OnTouchListener 
 
         espacio = (ImageView) findViewById(R.id.espacio);
         espacio.setOnTouchListener(this);
+        estado_conexion = (Button) findViewById(R.id.estado_conexion);
+        consola = (TextView) findViewById(R.id.consola);
+        titulo = (TextView) findViewById(R.id.titulo_simulador);
+
+        accion = "nula";
+        respaldo = getSharedPreferences("MisDatos", Context.MODE_PRIVATE);
+        editor = respaldo.edit();
+        editor.putString("accion",accion);
+        if(editor.commit())
+        {
+        }
 
         //  ----------------- BLUETOOTH -----------------------------------------//
         bt = new BluetoothSPP(this);
@@ -72,15 +95,20 @@ public class Interfaz extends AppCompatActivity implements View.OnTouchListener 
                 String dato;
                 int valor;
                 //textRead.append(message + "\n");
-                if(message.startsWith("V"))
+                if(message.startsWith("G"))
                 {
                     Log.d(TAG,"mensaje recibido: "+message+" largo: "+message.length());
                     dato = message.substring(1,message.length());
                     valor = Integer.parseInt(dato);
                     Log.d(TAG,"conversion correcta a entero: "+valor);
+                    consola.setText("Glucemia:\n"+valor + " mg/dL");
+
+                    editor = respaldo.edit();
+                    editor.putInt("glucemia", valor);
+                    if(editor.commit())
+                    {
+                    }
                 }
-
-
             }
         });
 
@@ -90,17 +118,28 @@ public class Interfaz extends AppCompatActivity implements View.OnTouchListener 
             public void onDeviceDisconnected()
             {
                 // CAMBIAR TEXTO DE CONSOLA CONEXION
-
+                estado_conexion.setText(R.string.bt_dc);
+                estado_conexion.setBackgroundResource(R.color.colorOff);
+                Log.e(TAG,"SE PERDIÓ LA CONEXION");
+                consola.setText("Glucemia:\n - - mg/dL");
+                consola.setBackgroundResource(R.color.colorOff);
+                conectado = false;
             }
 
             public void onDeviceConnectionFailed()
             {
                 // CAMBIAR TEXTO DE CONSOLA CONEXION
+                estado_conexion.setText(R.string.bt_error);
+                estado_conexion.setBackgroundResource(R.color.colorOff);
+                Log.e(TAG,"SE PERDIÓ LA CONEXION");
+                consola.setText("Glucemia:\n - - mg/dL");
+                consola.setBackgroundResource(R.color.colorOff);
+                conectado = false;
             }
 
             public void onDeviceConnected(String name, String address)
             {
-
+                conectado = true;
             }
         });
 
@@ -110,11 +149,15 @@ public class Interfaz extends AppCompatActivity implements View.OnTouchListener 
             {
                 if(state == BluetoothState.STATE_CONNECTED)
                 {
-
+                    estado_conexion.setText(R.string.bt_ct);
+                    estado_conexion.setBackgroundResource(R.color.colorOn);
+                    consola.setBackgroundResource(R.color.colorOn);
+                    conectado = true;
                 }
                 else if(state == BluetoothState.STATE_CONNECTING)
                 {
-
+                    estado_conexion.setText(R.string.bt_cting);
+                    estado_conexion.setBackgroundResource(R.color.colorConecting);
                 }
                 else if(state == BluetoothState.STATE_LISTEN)
                 {
@@ -122,6 +165,11 @@ public class Interfaz extends AppCompatActivity implements View.OnTouchListener 
                 }
                 else if(state == BluetoothState.STATE_NONE)
                 {
+                    consola.setText("Glucemia:\n - - mg/dL");
+                    estado_conexion.setText(R.string.bt_off);
+                    estado_conexion.setBackgroundResource(R.color.colorOff);
+                    consola.setBackgroundResource(R.color.colorOff);
+
                     // Do something when device don't have any connection
                 }
             }
@@ -156,6 +204,175 @@ public class Interfaz extends AppCompatActivity implements View.OnTouchListener 
     {
         super.onResume();
         Log.v(TAG, "On Resume");
+
+        respaldo = getSharedPreferences("MisDatos", Context.MODE_PRIVATE);
+        accion = respaldo.getString("accion","nula");
+        objetivo = respaldo.getInt("objetivo", 100);
+        estado = respaldo.getString("estado", "nula");
+
+        if(accion.equals("nula"))
+        {
+            titulo.setText(R.string.titulo_nulo);
+        }
+
+        if(accion.equals("higado"))
+        {
+            titulo.setText("Elevando niveles de glucosa: "+objetivo);
+            // CAMBIAR GLUCOSA
+            if(conectado)
+            {
+                if( objetivo >= 100 && objetivo <= 999)
+                {
+                    bt.send("H0"+objetivo,true);
+                }
+
+                else if(objetivo >= 10 && objetivo <= 99)
+                {
+                    bt.send("H00"+objetivo,true);
+                }
+
+                else if(objetivo >= 0 && objetivo <= 9)
+                {
+                    bt.send("H000"+objetivo,true);
+                }
+            }
+        }
+
+        if(accion.equals("intestino"))
+        {
+            titulo.setText("Elevando niveles de glucosa: "+objetivo);
+            // CAMBIAR GLUCOSA
+            if(conectado)
+            {
+                if( objetivo >= 100 && objetivo <= 999)
+                {
+                    bt.send("I0"+objetivo,true);
+                }
+
+                else if(objetivo >= 10 && objetivo <= 99)
+                {
+                    bt.send("I00"+objetivo,true);
+                }
+
+                else if(objetivo >= 0 && objetivo <= 9)
+                {
+                    bt.send("I000"+objetivo,true);
+                }
+            }
+        }
+
+        if(accion.equals("musculos"))
+        {
+            titulo.setText("Disminuyendo niveles de glucosa: "+objetivo);
+            // CAMBIAR GLUCOSA
+            if(conectado)
+            {
+                if( objetivo >= 100 && objetivo <= 999)
+                {
+                    bt.send("M0"+objetivo,true);
+                }
+
+                else if(objetivo >= 10 && objetivo <= 99)
+                {
+                    bt.send("M00"+objetivo,true);
+                }
+
+                else if(objetivo >= 0 && objetivo <= 9)
+                {
+                    bt.send("M000"+objetivo,true);
+                }
+            }
+        }
+
+        if(accion.equals("cerebro"))
+        {
+            titulo.setText("Disminuyendo niveles de glucosa: "+objetivo);
+            // CAMBIAR GLUCOSA
+            if(conectado)
+            {
+                if( objetivo >= 100 && objetivo <= 999)
+                {
+                    bt.send("C0"+objetivo,true);
+                }
+
+                else if(objetivo >= 10 && objetivo <= 99)
+                {
+                    bt.send("C00"+objetivo,true);
+                }
+
+                else if(objetivo >= 0 && objetivo <= 9)
+                {
+                    bt.send("C000"+objetivo,true);
+                }
+            }
+        }
+
+        if(accion.equals("corazon"))
+        {
+            titulo.setText("Disminuyendo niveles de glucosa: "+objetivo);
+            // CAMBIAR GLUCOSA
+            if(conectado)
+            {
+                if( objetivo >= 1000)
+                {
+                    bt.send("F"+objetivo,true);
+                }
+                if( objetivo >= 100 && objetivo <= 999)
+                {
+                    bt.send("F0"+objetivo,true);
+                }
+
+                else if(objetivo >= 10 && objetivo <= 99)
+                {
+                    bt.send("F00"+objetivo,true);
+                }
+
+                else if(objetivo >= 0 && objetivo <= 9)
+                {
+                    bt.send("F000"+objetivo,true);
+                }
+            }
+        }
+
+        if(accion.equals("sim"))
+        {
+            titulo.setText(R.string.titulo_sim+" "+estado);
+            if(conectado)
+            {
+                if(estado.equals("sano"))
+                {
+                    bt.send("ES"+objetivo,true);
+                }
+
+                else if(estado.equals("diabetico"))
+                {
+                    bt.send("ED"+objetivo,true);
+                }
+
+                else if(estado.equals("hipoglucemico"))
+                {
+                    bt.send("EH"+objetivo,true);
+                }
+            }
+        }
+
+        if(accion.equals("test"))
+        {
+            if(conectado)
+            {
+                bt.send("T"+objetivo,true);
+            }
+        }
+
+        if(accion.equals("test_leds"))
+        {
+            if(conectado)
+            {
+                bt.send("L"+objetivo,true);
+            }
+        }
+
+
 
         if (!bt.isBluetoothEnabled()) // no habilitado
         {
@@ -212,6 +429,34 @@ public class Interfaz extends AppCompatActivity implements View.OnTouchListener 
             return true;
         }
 
+        if (id == R.id.conectar)
+        {
+            vibrar(100);
+            Intent i = new Intent(this, DeviceList.class);
+            startActivity(i);
+            return true;
+        }
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.configuracion)
+        {
+            vibrar(100);
+            Intent i = new Intent(this, Configuracion.class);
+            i.putExtra("opcion","config");
+            startActivity(i);
+            return true;
+        }
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.test_leds)
+        {
+            vibrar(100);
+            Intent i = new Intent(this, Configuracion.class);
+            i.putExtra("opcion","test_leds");
+            startActivity(i);
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
     /** -------------------- METODOS DE MENU --------------------------------*/
@@ -263,7 +508,7 @@ public class Interfaz extends AppCompatActivity implements View.OnTouchListener 
                     //Toast.makeText(Interfaz.this, "Click al pulmon", Toast.LENGTH_SHORT).show();
                 }
 
-                else if ( ( (pcX > 10 && pcX <20) || (pcX > 80 && pcX <90) ) && (pcY > 45 && pcY < 60)  )
+                else if ( ( (pcX > 18 && pcX <32) || (pcX > 70 && pcX <85) ) && (pcY > 43 && pcY < 60)  )
                 {
                     //Toast.makeText(Interfaz.this, "Click al musculo", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(this, Configuracion.class);

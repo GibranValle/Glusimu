@@ -50,10 +50,10 @@
     <string name="titulo_notificacion">Panel de Notificación</string>
 
     <!-- textos BT -->
-    <string name="bt_dc">DESCONECTADO</string>
-    <string name="bt_ct">CONECTADO</string>
-    <string name="bt_cting">CONECTANDO</string>
-    <string name="bt_off">SIN\nCONEXIÓN</string>
+    <string name="bt_dc">Desconectado</string>
+    <string name="bt_ct">Conectado</string>
+    <string name="bt_cting">Conectando</string>
+    <string name="bt_off">Sin\Conexión</string>
     <string name="bt_button">Iniciar\nConexión</string>
     <string name="bt_error">Conexión Fallida</string>
     <string name="bt_exito">Conectado correctamente a: </string>
@@ -137,9 +137,7 @@
     <string name="boton_cancelar">Cancelar</string>
 
     <!-- Configuracion -->
-    <string name="titulo_config">Opcion Seleccionada</string>
     <string name="demo">Habilitar el modo demo</string>
-    <string name="max">"Medición máxima:"</string>
     <string name="max_hint"> 250</string>
     <string name="hipo">"Hipoglucemia: "</string>
     <string name="hipo_hint"> 70</string>
@@ -171,7 +169,8 @@
     <string name="error_spinner">"Seleccione una curva a graficar"</string>
     <string name="cb_monitor">Monitorizar glucemia</string>
     <string name="frec_monitor">Frecuencia [muestras/hora]: </string>
-    <string name="hint_monitor">2</string>
+    <string name="hint_min">min</string>
+    <string name="hint_max">max</string>
 
     <!-- Monitor -->
     <string name="titulo_monitor">"Monitor de glucemia"</string>
@@ -180,10 +179,49 @@
     <!-- SIMULADOR -->
     <string name="slider">"Gasto Cardiaco: 1L/min"</string>
     <string name="titulo_config_simu">"Simulación de flujo sanguíneo"</string>
-    <string name="texto_spinner">"Seleccione el estado del paciente"</string>
+    <string name="texto_spinner">"Seleccione un estado"</string>
+    <string name="titulo">"Seleccione un órgano"</string>
+
+    <string name="bt_sin_conexion">"Sin conexión"</string>
+    <string name="consola_uno">"Glucemia:\n - - mg/dL"</string>
+
+    <string name="titulo_pancreas">"Simulación de estado de salud"</string>
+    <string name="titulo_higado">"Incremento de glucemia por glucogénesis"</string>
+    <string name="titulo_intestino">"Incremento de glucemia por alimento"</string>
+    <string name="titulo_musculo">"Consumo muscular de glucosa"</string>
+    <string name="titulo_cerebro">"Consumo cerebral de glucosa"</string>
+    <string name="titulo_corazon">"Simulación de flujo sanguíneo"</string>
+    <string name="titulo_test">"Apertura manual de electrovalvulas"</string>
+    <string name="titulo_config">"Configuración de parámetros"</string>
+
+    <string name="min">"Limite inferior de glucemia [mg/dL]"</string>
+    <string name="max">"Limite superior de glucemia [mg/dL]"</string>
+
+    <string name="led_todos">"Prender todos los LEDs"</string>
+    <string name="led_azules">"Prender todos los LEDs azules"</string>
+    <string name="led_rojos">"Prender todos los LEDs rojos"</string>
+    <string name="led_verdes">"Prender todos los LEDs verdes"</string>
+
+    <string name="led_cerebro">"Solo LEDs del cerebro"</string>
+    <string name="led_musculo">"Solo LEDs del mnusculo"</string>
+    <string name="led_higado">"Solo LEDs del higado"</string>
+    <string name="led_intestino">"Solo LEDs del intestino"</string>
+    <string name="led_pancreas">"Solo LEDs del pancreas"</string>
+
+    <string name="EVT">"Todas las electroválvulas"</string>
+    <string name="EVC1">"Electroválvula derecha Cerebro"</string>
+
 
     <!-- textos Menu -->
+    <string name="menu_conectar">Conectar a simulador</string>
     <string name="menu_config">Test de electroválvulas</string>
+    <string name="menu_test">Test de electroválvulas</string>
+    <string name="menu_leds">Test de LEDs</string>
 
+    <!-- textos titulo -->
+    <string name="titulo_nulo">Seleccione un organo</string>
+    <string name="titulo_subir">Elevando niveles de glucosa: </string>
+    <string name="tituo_bajar">Reduciendo niveles de glucosa: </string>
+    <string name="titulo_sim">Simulando condición: </string>
 
 </resources>
