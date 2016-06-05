@@ -76,7 +76,8 @@ public class Configuracion extends Activity implements View.OnClickListener, See
         objetivoIntestino = respaldo.getInt("objetivoIntestino",120);
         objetivoHigado = respaldo.getInt("objetivoHigado",120);
         max = respaldo.getInt("max",200);
-        max = respaldo.getInt("min",50);
+        min = respaldo.getInt("min",50);
+        Log.d(TAG,"configuracion, max: "+max + " min: " +min);
         estado = respaldo.getString("estado", "nula");
         glucemia = respaldo.getInt("glucemia",100);
         valvulasChecked = respaldo.getInt("valvulasChecked",0);
@@ -339,7 +340,7 @@ public class Configuracion extends Activity implements View.OnClickListener, See
             musculos.setVisibility(View.GONE);
             cerebro.setVisibility(View.GONE);
             // CARGAR LA CONFIG DE CORAZON
-            Log.d(TAG,"eliminacion: "+gasto);
+            Log.d(TAG,"configuracion, max: "+max + " min: " +min);
             titulo.setText(R.string.titulo_config);
             maxOut.setText(""+max);
             minOut.setText(""+min);
@@ -527,6 +528,7 @@ public class Configuracion extends Activity implements View.OnClickListener, See
                 {
                     finish();
                     Toast.makeText(Configuracion.this, "Modificado correctamente", Toast.LENGTH_SHORT).show();
+                    Log.d(TAG,"pancreas "+ estado);
                 }
             }
 
@@ -567,7 +569,6 @@ public class Configuracion extends Activity implements View.OnClickListener, See
                 }
                 editor = respaldo.edit();
                 editor.putString("accion", "test");
-                editor.putString("objetivo", "0");
                 editor.putInt("valvulasChecked", valvulasChecked);
                 editor.putInt("objetivo", valvulasChecked);
                 if(editor.commit())
@@ -580,9 +581,11 @@ public class Configuracion extends Activity implements View.OnClickListener, See
 
             if(opcion.equals("config"))
             {
+                Log.d(TAG,"on click de config");
                 editor = respaldo.edit();
                 max = Integer.parseInt(maxOut.getText().toString());
                 min = Integer.parseInt(minOut.getText().toString());
+                Log.d(TAG,"configuracion, max: "+max + " min: " +min);
                 if(min > 10 && max < 600)
                 {
                     editor.putInt("max", max);
@@ -643,7 +646,6 @@ public class Configuracion extends Activity implements View.OnClickListener, See
 
                 editor = respaldo.edit();
                 editor.putString("accion", "test");
-                editor.putString("objetivo", "0");
                 editor.putInt("ledsChecked", ledsChecked);
                 editor.putInt("objetivo", ledsChecked);
                 if(editor.commit())
@@ -651,6 +653,7 @@ public class Configuracion extends Activity implements View.OnClickListener, See
                     finish();
                     Toast.makeText(Configuracion.this, "Modificado correctamente", Toast.LENGTH_SHORT).show();
                     Log.d(TAG,"leds: "+ledsChecked + " valvs: "+valvulasChecked);
+                    Log.d(TAG,"configuracion, max: "+max + " min: " +min);
                 }
             }
         }

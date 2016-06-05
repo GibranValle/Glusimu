@@ -336,9 +336,10 @@ public class Interfaz extends AppCompatActivity implements View.OnTouchListener 
 
         if(accion.equals("sim"))
         {
-            titulo.setText(R.string.titulo_sim+" "+estado);
             if(conectado)
             {
+                titulo.setText(R.string.titulo_sim+" "+estado);
+
                 if(estado.equals("sano"))
                 {
                     bt.send("ES"+objetivo,true);
