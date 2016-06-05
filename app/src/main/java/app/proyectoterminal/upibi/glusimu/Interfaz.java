@@ -109,6 +109,37 @@ public class Interfaz extends AppCompatActivity implements View.OnTouchListener 
                     {
                     }
                 }
+
+                if(message.startsWith("L"))
+                {
+                    Log.d(TAG,"mensaje recibido: "+message+" largo: "+message.length());
+                    dato = message.substring(1,message.length());
+                    valor = Integer.parseInt(dato);
+                    Log.d(TAG,"conversion correcta a entero: LED: "+valor);
+
+                    editor = respaldo.edit();
+                    editor.putInt("ledsChecked", valor);
+                    if(editor.commit())
+                    {
+                    }
+                }
+
+                if(message.startsWith("V"))
+                {
+                    Log.d(TAG,"mensaje recibido: "+message+" largo: "+message.length());
+                    dato = message.substring(1,message.length());
+                    valor = Integer.parseInt(dato);
+                    Log.d(TAG,"conversion correcta a entero: "+valor);
+                    consola.setText("Glucemia:\n"+valor + " mg/dL");
+
+                    editor = respaldo.edit();
+                    editor.putInt("valvulasChecked", valor);
+                    if(editor.commit())
+                    {
+                    }
+                }
+
+
             }
         });
 
