@@ -373,17 +373,17 @@ public class Interfaz extends AppCompatActivity implements View.OnTouchListener 
 
                 if(estado.equals("sano"))
                 {
-                    bt.send("ES"+objetivo,true);
+                    bt.send("ES00",true);
                 }
 
                 else if(estado.equals("diabetico"))
                 {
-                    bt.send("ED"+objetivo,true);
+                    bt.send("ED00",true);
                 }
 
                 else if(estado.equals("hipoglucemico"))
                 {
-                    bt.send("EH"+objetivo,true);
+                    bt.send("EH00",true);
                 }
             }
         }

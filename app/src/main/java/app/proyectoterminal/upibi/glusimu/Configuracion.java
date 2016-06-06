@@ -35,7 +35,7 @@ public class Configuracion extends Activity implements View.OnClickListener, See
     SharedPreferences respaldo;
     SharedPreferences.Editor editor;
     String TAG = "Interfaz";
-    LinearLayout corazon, pancreas, higado, intestino, config, test, musculos, cerebro, leds;
+    LinearLayout cambioGlucemia, pancreas, config, test, leds;
     CheckBox EVT, EVCD, EVCI, EVMD, EVMI, EVH, EVRD, EVI, EVRI;
     Spinner spinner;
     ArrayAdapter<String> adapter;
@@ -91,12 +91,8 @@ public class Configuracion extends Activity implements View.OnClickListener, See
         titulo = (TextView) findViewById(R.id.tituloFragment);
         leds = (LinearLayout) findViewById(R.id.leds);
         config = (LinearLayout) findViewById(R.id.config);
-        cerebro = (LinearLayout) findViewById(R.id.cerebro);
-        corazon = (LinearLayout) findViewById(R.id.corazon);
-        musculos = (LinearLayout) findViewById(R.id.musculo);
+        cambioGlucemia = (LinearLayout) findViewById(R.id.seekbar);
         pancreas = (LinearLayout) findViewById(R.id.pancreas);
-        higado = (LinearLayout) findViewById(R.id.higado);
-        intestino = (LinearLayout) findViewById(R.id.intestino);
         test = (LinearLayout) findViewById(R.id.test);
         minOut = (EditText) findViewById(R.id.min);
         maxOut = (EditText) findViewById(R.id.max);
@@ -150,13 +146,9 @@ public class Configuracion extends Activity implements View.OnClickListener, See
         {
             leds.setVisibility(View.GONE);
             config.setVisibility(View.GONE);
-            corazon.setVisibility(View.VISIBLE);
+            cambioGlucemia.setVisibility(View.VISIBLE);
             pancreas.setVisibility(View.GONE);
-            intestino.setVisibility(View.GONE);
-            higado.setVisibility(View.GONE);
             test.setVisibility(View.GONE);
-            musculos.setVisibility(View.GONE);
-            cerebro.setVisibility(View.GONE);
             // CARGAR LA CONFIG DE CORAZON
             slider.setProgress(gasto/10);
             texzto_slider.setText("Gasto cardiaco: "+gasto+" mL/min");
@@ -168,13 +160,9 @@ public class Configuracion extends Activity implements View.OnClickListener, See
         {
             leds.setVisibility(View.GONE);
             config.setVisibility(View.GONE);
-            corazon.setVisibility(View.GONE);
+            cambioGlucemia.setVisibility(View.VISIBLE);
             pancreas.setVisibility(View.GONE);
-            intestino.setVisibility(View.GONE);
-            higado.setVisibility(View.GONE);
             test.setVisibility(View.GONE);
-            musculos.setVisibility(View.GONE);
-            cerebro.setVisibility(View.VISIBLE);
             // CARGAR LA CONFIG DE CORAZON
             Log.d(TAG,"consumo: "+gasto);
             titulo.setText(R.string.titulo_cerebro);
@@ -185,13 +173,9 @@ public class Configuracion extends Activity implements View.OnClickListener, See
         {
             leds.setVisibility(View.GONE);
             config.setVisibility(View.GONE);
-            corazon.setVisibility(View.GONE);
+            cambioGlucemia.setVisibility(View.VISIBLE);
             pancreas.setVisibility(View.GONE);
-            intestino.setVisibility(View.VISIBLE);
-            higado.setVisibility(View.GONE);
             test.setVisibility(View.GONE);
-            musculos.setVisibility(View.GONE);
-            cerebro.setVisibility(View.GONE);
             // CARGAR LA CONFIG DE CORAZON
             Log.d(TAG,"ingreso: "+gasto);
             titulo.setText(R.string.titulo_intestino);
@@ -202,13 +186,9 @@ public class Configuracion extends Activity implements View.OnClickListener, See
         {
             leds.setVisibility(View.GONE);
             config.setVisibility(View.GONE);
-            corazon.setVisibility(View.GONE);
+            cambioGlucemia.setVisibility(View.VISIBLE);
             pancreas.setVisibility(View.GONE);
-            intestino.setVisibility(View.VISIBLE);
-            higado.setVisibility(View.GONE);
             test.setVisibility(View.GONE);
-            musculos.setVisibility(View.GONE);
-            cerebro.setVisibility(View.GONE);
             // CARGAR LA CONFIG DE CORAZON
             Log.d(TAG,"ingreso: "+gasto);
             titulo.setText(R.string.titulo_higado);
@@ -224,13 +204,9 @@ public class Configuracion extends Activity implements View.OnClickListener, See
         {
             leds.setVisibility(View.GONE);
             config.setVisibility(View.GONE);
-            corazon.setVisibility(View.GONE);
+            cambioGlucemia.setVisibility(View.GONE);
             pancreas.setVisibility(View.VISIBLE);
-            intestino.setVisibility(View.GONE);
-            higado.setVisibility(View.GONE);
             test.setVisibility(View.GONE);
-            musculos.setVisibility(View.GONE);
-            cerebro.setVisibility(View.GONE);
             // CARGAR LA CONFIG DE CORAZON
             Log.d(TAG,"eliminacion: "+gasto);
             titulo.setText(R.string.titulo_pancreas);
@@ -240,13 +216,9 @@ public class Configuracion extends Activity implements View.OnClickListener, See
         {
             leds.setVisibility(View.GONE);
             config.setVisibility(View.GONE);
-            corazon.setVisibility(View.GONE);
+            cambioGlucemia.setVisibility(View.VISIBLE);
             pancreas.setVisibility(View.GONE);
-            intestino.setVisibility(View.GONE);
-            higado.setVisibility(View.GONE);
             test.setVisibility(View.GONE);
-            musculos.setVisibility(View.VISIBLE);
-            cerebro.setVisibility(View.GONE);
             // CARGAR LA CONFIG DE CORAZON
             Log.d(TAG,"eliminacion: "+gasto);
             titulo.setText(R.string.titulo_musculo);
@@ -257,13 +229,9 @@ public class Configuracion extends Activity implements View.OnClickListener, See
         {
             leds.setVisibility(View.GONE);
             config.setVisibility(View.GONE);
-            corazon.setVisibility(View.GONE);
+            cambioGlucemia.setVisibility(View.GONE);
             pancreas.setVisibility(View.GONE);
-            intestino.setVisibility(View.GONE);
-            higado.setVisibility(View.GONE);
             test.setVisibility(View.VISIBLE);
-            musculos.setVisibility(View.GONE);
-            cerebro.setVisibility(View.GONE);
             // CARGAR LA CONFIG DE CORAZON
             Log.d(TAG,"eliminacion: "+gasto);
             titulo.setText(R.string.titulo_test);
@@ -335,13 +303,9 @@ public class Configuracion extends Activity implements View.OnClickListener, See
         {
             leds.setVisibility(View.GONE);
             config.setVisibility(View.VISIBLE);
-            corazon.setVisibility(View.GONE);
+            cambioGlucemia.setVisibility(View.GONE);
             pancreas.setVisibility(View.GONE);
-            intestino.setVisibility(View.GONE);
-            higado.setVisibility(View.GONE);
             test.setVisibility(View.GONE);
-            musculos.setVisibility(View.GONE);
-            cerebro.setVisibility(View.GONE);
             // CARGAR LA CONFIG DE CORAZON
             Log.d(TAG,"configuracion, max: "+max + " min: " +min);
             titulo.setText(R.string.titulo_config);
@@ -356,13 +320,9 @@ public class Configuracion extends Activity implements View.OnClickListener, See
         {
             leds.setVisibility(View.VISIBLE);
             config.setVisibility(View.GONE);
-            corazon.setVisibility(View.GONE);
+            cambioGlucemia.setVisibility(View.GONE);
             pancreas.setVisibility(View.GONE);
-            intestino.setVisibility(View.GONE);
-            higado.setVisibility(View.GONE);
             test.setVisibility(View.GONE);
-            musculos.setVisibility(View.GONE);
-            cerebro.setVisibility(View.GONE);
             // CARGAR LA CONFIG DE CORAZON
             Log.d(TAG,"eliminacion: "+gasto);
             titulo.setText(R.string.titulo_config);
@@ -456,7 +416,7 @@ public class Configuracion extends Activity implements View.OnClickListener, See
                 if(editor.commit())
                 {
                     finish();
-                    Toast.makeText(Configuracion.this, "Modificado correctamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Configuracion.this, "Gasto cardiaco modificado correctamente", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -469,7 +429,7 @@ public class Configuracion extends Activity implements View.OnClickListener, See
                 if(editor.commit())
                 {
                     finish();
-                    Toast.makeText(Configuracion.this, "Modificado correctamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Configuracion.this, "Glucemia objetivo modificada correctamente", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -482,7 +442,7 @@ public class Configuracion extends Activity implements View.OnClickListener, See
                 if(editor.commit())
                 {
                     finish();
-                    Toast.makeText(Configuracion.this, "Modificado correctamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Configuracion.this, "Glucemia objetivo modificada correctamente", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -496,7 +456,7 @@ public class Configuracion extends Activity implements View.OnClickListener, See
                 if(editor.commit())
                 {
                     finish();
-                    Toast.makeText(Configuracion.this, "Modificado correctamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Configuracion.this, "Glucemia objetivo modificada correctamente", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -510,7 +470,7 @@ public class Configuracion extends Activity implements View.OnClickListener, See
                 if(editor.commit())
                 {
                     finish();
-                    Toast.makeText(Configuracion.this, "Modificado correctamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Configuracion.this, "Glucemia objetivo modificada correctamente", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -529,7 +489,7 @@ public class Configuracion extends Activity implements View.OnClickListener, See
                 if(editor.commit())
                 {
                     finish();
-                    Toast.makeText(Configuracion.this, "Modificado correctamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Configuracion.this, "Iniciando simulación, paciente: "+estado, Toast.LENGTH_SHORT).show();
                     Log.d(TAG,"pancreas "+ estado);
                 }
             }
@@ -670,6 +630,7 @@ public class Configuracion extends Activity implements View.OnClickListener, See
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
     {
         int m, b;
+        Log.d(TAG,"opcion: "+opcion);
         if(opcion.equals("corazon"))
         {
             gasto = progress*10;
@@ -970,8 +931,25 @@ public class Configuracion extends Activity implements View.OnClickListener, See
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+    {
+        if(position == 0)
+        {
+            Log.d(TAG,"SANO");
+            estado = "sano";
+        }
 
+        else if(position == 1)
+        {
+            Log.d(TAG,"DIABETICO");
+            estado = "diabetico";
+        }
+
+        else if(position == 1)
+        {
+            Log.d(TAG,"HIPOGLUCEMICO");
+            estado = "hipoglucemico";
+        }
     }
 
     @Override

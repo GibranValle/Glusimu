@@ -32,8 +32,8 @@
 
 
     <LinearLayout
-        android:visibility="gone"
-        android:id="@+id/corazon"
+        android:visibility="visible"
+        android:id="@+id/seekbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -53,102 +53,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/slider"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:visibility="gone"
-        android:id="@+id/intestino"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp"
-        android:padding="@dimen/margen_chiquis" >
-
-        <TextView
-            style="@style/textoFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/slider"
-            android:id="@+id/textView3" />
-
-        <SeekBar
-            android:foregroundGravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/seekBar3"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:visibility="gone"
-        android:id="@+id/higado"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp"
-        android:padding="@dimen/margen_chiquis" >
-
-        <TextView
-            style="@style/textoFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/slider"
-            android:id="@+id/textView4" />
-
-        <SeekBar
-            android:foregroundGravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/seekBar4"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:visibility="gone"
-        android:id="@+id/cerebro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp"
-        android:padding="@dimen/margen_chiquis" >
-
-        <TextView
-            style="@style/textoFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/slider"
-            android:id="@+id/textView2" />
-
-        <SeekBar
-            android:foregroundGravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/seekBar2"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:visibility="gone"
-        android:id="@+id/musculo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp"
-        android:padding="@dimen/margen_chiquis" >
-
-        <TextView
-            style="@style/textoFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/slider"
-            android:id="@+id/textView" />
-
-        <SeekBar
-            android:foregroundGravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/seekBar"
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
 
@@ -250,7 +154,7 @@
 
     <LinearLayout
         android:padding="@dimen/margen_chiquis"
-        android:visibility="visible"
+        android:visibility="gone"
         android:id="@+id/test"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -280,13 +184,13 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Electroválvula de músculo izquierdo"
+            android:text="Electroválvula de Músculo izquierdo"
             android:id="@+id/EVMI" />
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Electroválvula de músculo derecho"
+            android:text="Electroválvula de Músculo derecho"
             android:id="@+id/EVMD" />
 
         <CheckBox
