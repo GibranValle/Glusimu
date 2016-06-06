@@ -36,7 +36,7 @@ public class Configuracion extends Activity implements View.OnClickListener, See
     SharedPreferences.Editor editor;
     String TAG = "Interfaz";
     LinearLayout corazon, pancreas, higado, intestino, config, test, musculos, cerebro, leds;
-    CheckBox EVT, EVCD, EVCI, EVMD, EVMI, EVH, EVP, EVI, EVR;
+    CheckBox EVT, EVCD, EVCI, EVMD, EVMI, EVH, EVRD, EVI, EVRI;
     Spinner spinner;
     ArrayAdapter<String> adapter;
     CheckBox LEDT, LEDR, LEDV, LEDA, LEDC, LEDM, LEDH, LEDI, LEDP;
@@ -108,8 +108,8 @@ public class Configuracion extends Activity implements View.OnClickListener, See
         EVMI = (CheckBox) findViewById(R.id.EVMI);
         EVH =  (CheckBox) findViewById(R.id.EVH);
         EVI = (CheckBox) findViewById(R.id.EVI);
-        EVP = (CheckBox) findViewById(R.id.EVP);
-        EVR = (CheckBox) findViewById(R.id.EVR);
+        EVRD = (CheckBox) findViewById(R.id.EVRD);
+        EVRI = (CheckBox) findViewById(R.id.EVRI);
 
         LEDT = (CheckBox) findViewById(R.id.LEDT);
         LEDR = (CheckBox) findViewById(R.id.LEDR);
@@ -133,7 +133,7 @@ public class Configuracion extends Activity implements View.OnClickListener, See
         EVMI.setOnCheckedChangeListener(this);
         EVH.setOnCheckedChangeListener(this);
         EVI.setOnCheckedChangeListener(this);
-        EVP.setOnCheckedChangeListener(this);
+        EVRD.setOnCheckedChangeListener(this);
 
         LEDT.setOnCheckedChangeListener(this);
         LEDR.setOnCheckedChangeListener(this);
@@ -178,6 +178,7 @@ public class Configuracion extends Activity implements View.OnClickListener, See
             // CARGAR LA CONFIG DE CORAZON
             Log.d(TAG,"consumo: "+gasto);
             titulo.setText(R.string.titulo_cerebro);
+            texzto_slider.setText("Disminuir la glucemia hasta: "+objetivoCerebro+" mL/min");
         }
 
         if(opcion.equals("intestino") || opcion.equals("higado"))
@@ -194,6 +195,7 @@ public class Configuracion extends Activity implements View.OnClickListener, See
             // CARGAR LA CONFIG DE CORAZON
             Log.d(TAG,"ingreso: "+gasto);
             titulo.setText(R.string.titulo_intestino);
+            texzto_slider.setText("Disminuir la glucemia hasta: "+objetivoCerebro+" mL/min");
         }
 
         if(opcion.equals("higado") || opcion.equals("higado"))
@@ -248,6 +250,7 @@ public class Configuracion extends Activity implements View.OnClickListener, See
             // CARGAR LA CONFIG DE CORAZON
             Log.d(TAG,"eliminacion: "+gasto);
             titulo.setText(R.string.titulo_musculo);
+            texzto_slider.setText("Disminuir la glucemia hasta: "+objetivoMusculos+" mL/min");
         }
 
         if(opcion.equals("test"))
@@ -274,54 +277,54 @@ public class Configuracion extends Activity implements View.OnClickListener, See
             if(valvulasChecked >= 128)
             {
                 V8 = true;
-                EVR.setChecked(true);
+                EVRI.setChecked(true);
                 valvulasChecked -= 128;
             }
             if(valvulasChecked >= 64)
             {
                 V7 = true;
                 valvulasChecked -= 64;
-                EVP.setChecked(true);
+                EVRD.setChecked(true);
             }
             if(valvulasChecked >= 32)
             {
                 V6 = true;
                 valvulasChecked -= 32;
-                EVMI.setChecked(true);
+                EVI.setChecked(true);
             }
 
             if(valvulasChecked >= 16)
             {
                 V5 = true;
                 valvulasChecked -= 16;
-                EVMD.setChecked(true);
+                EVH.setChecked(true);
             }
 
             if(valvulasChecked >= 8)
             {
-                V5 = true;
+                V4 = true;
                 valvulasChecked -= 8;
-                EVI.setChecked(true);
+                EVMI.setChecked(true);
             }
 
             if(valvulasChecked >= 4)
             {
-                V5 = true;
+                V3 = true;
                 valvulasChecked -= 4;
-                EVH.setChecked(true);
+                EVMD.setChecked(true);
             }
 
 
             if(valvulasChecked >= 2)
             {
-                V5 = true;
+                V2 = true;
                 valvulasChecked -= 2;
                 EVCI.setChecked(true);
             }
 
             if(valvulasChecked >= 1)
             {
-                V5 = true;
+                V1 = true;
                 valvulasChecked -= 1;
                 EVCD.setChecked(true);
             }
@@ -520,9 +523,8 @@ public class Configuracion extends Activity implements View.OnClickListener, See
             if(opcion.equals("pancreas"))
             {
                 editor = respaldo.edit();
-                editor.putInt("objetivo", objetivo);
-                editor.putString("accion", "higado");
-                editor.putInt("objetivoPancreas", objetivo);
+                editor.putString("accion", "pancreas");
+                editor.putString("estado", estado);
 
                 if(editor.commit())
                 {
@@ -764,8 +766,8 @@ public class Configuracion extends Activity implements View.OnClickListener, See
                 EVI.setChecked(true);
                 EVMD.setChecked(true);
                 EVMI.setChecked(true);
-                EVP.setChecked(true);
-                EVR.setChecked(true);
+                EVRD.setChecked(true);
+                EVRI.setChecked(true);
 
             }
 
@@ -777,28 +779,28 @@ public class Configuracion extends Activity implements View.OnClickListener, See
             {
                 V2 = true;
             }
-            if(buttonView.getId() == R.id.EVH)
+            if(buttonView.getId() == R.id.EVMD)
             {
                 V3 = true;
             }
-            if(buttonView.getId() == R.id.EVI)
+            if(buttonView.getId() == R.id.EVMI)
             {
                 V4 = true;
             }
-            if(buttonView.getId() == R.id.EVMD)
+            if(buttonView.getId() == R.id.EVH)
             {
                 V5 = true;
             }
-            if(buttonView.getId() == R.id.EVMI)
+            if(buttonView.getId() == R.id.EVI)
             {
                 V6 = true;
             }
-            if(buttonView.getId() == R.id.EVP)
+            if(buttonView.getId() == R.id.EVRD)
             {
                 V7 = true;
 
             }
-            if(buttonView.getId() == R.id.EVR)
+            if(buttonView.getId() == R.id.EVRI)
             {
                 V8 = true;
             }
@@ -878,9 +880,9 @@ public class Configuracion extends Activity implements View.OnClickListener, See
                 EVCI.setChecked(false);
                 EVMD.setChecked(false);
                 EVMI.setChecked(false);
-                EVP.setChecked(false);
-                EVR.setChecked(false);
-                EVP.setChecked(false);
+                EVRD.setChecked(false);
+                EVRI.setChecked(false);
+                EVRD.setChecked(false);
                 EVH.setChecked(false);
                 EVI.setChecked(false);
             }
@@ -915,12 +917,12 @@ public class Configuracion extends Activity implements View.OnClickListener, See
                 V6 = false;
             }
 
-            if(buttonView.getId() == R.id.EVP)
+            if(buttonView.getId() == R.id.EVRD)
             {
                 V7 = false;
             }
 
-            if(buttonView.getId() == R.id.EVR)
+            if(buttonView.getId() == R.id.EVRI)
             {
                 V8 = false;
             }
